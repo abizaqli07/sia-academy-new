@@ -55,8 +55,10 @@ export const users = createTable("user", (d) => ({
   notifConsent: d.boolean().default(false),
 }));
 
-export const usersRelations = relations(users, ({ many }) => ({
+export const usersRelations = relations(users, ({ many, one }) => ({
+  mentorData: one(mentor),
   accounts: many(accounts),
+  purchases: many(purchase),
 }));
 
 export const accounts = createTable(
