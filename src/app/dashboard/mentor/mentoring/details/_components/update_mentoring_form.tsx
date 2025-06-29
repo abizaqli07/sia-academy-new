@@ -172,6 +172,7 @@ const UpdateMentoringForm = () => {
                         type="number"
                         disabled={isSubmitting}
                         placeholder="Price"
+                        min={1000}
                         {...field}
                       />
                     </FormControl>

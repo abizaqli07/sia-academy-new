@@ -2,12 +2,13 @@
 
 import {
   IconDashboard,
+  IconDeviceDesktopCode,
+  IconDevicesPc,
   IconInnerShadowTop,
-  IconSchool,
   IconSettings,
-  IconUsersGroup
+  IconUserPentagon,
+  IconUserScreen
 } from "@tabler/icons-react";
-
 import type { Session } from "next-auth";
 import {
   Sidebar,
@@ -18,6 +19,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "~/components/ui/sidebar";
+import { NavDocuments } from "./nav-documents";
 import { NavMain } from "./nav-main";
 import { NavSecondary } from "./nav-secondary";
 import { NavUser } from "./nav-user";
@@ -26,28 +28,39 @@ const data = {
   navMain: [
     {
       title: "Dashboard",
-      url: "/dashboard/mentor",
+      url: "/dashboard/user",
       icon: IconDashboard,
     },
     {
-      title: "Mentoring",
-      url: "/dashboard/mentor/mentoring",
-      icon: IconSchool,
+      title: "Kursus Saya",
+      url: "/dashboard/user/my_course",
+      icon: IconDevicesPc,
     },
     {
-      title: "Mentee",
-      url: "/dashboard/mentor/mentee",
-      icon: IconUsersGroup,
+      title: "Mentoring Saya",
+      url: "/dashboard/user/my_mentoring",
+      icon: IconUserScreen,
     },
   ],
   navSecondary: [
     {
       title: "Settings",
-      url: "#",
+      url: "/dashboard/user/settings",
       icon: IconSettings,
     },
   ],
-  documents: [],
+  documents: [
+    {
+      name: "Cari Kursus",
+      url: "/dashboard/user/course",
+      icon: IconDeviceDesktopCode,
+    },
+    {
+      name: "Cari Mentoring",
+      url: "/dashboard/user/mentoring",
+      icon: IconUserPentagon,
+    },
+  ],
 };
 
 export function AppSidebar({ session }: { session: Session | null }) {
@@ -70,6 +83,7 @@ export function AppSidebar({ session }: { session: Session | null }) {
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
+        <NavDocuments items={data.documents} />
         <NavSecondary items={data.navSecondary} className="mt-auto" />
       </SidebarContent>
       <SidebarFooter>
