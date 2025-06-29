@@ -11,7 +11,8 @@ import {
 export const courseRouter = createTRPCRouter({
   getFeaturedCourse: publicProcedure.query(async ({ ctx }) => {
     const bootcamps = await ctx.db.query.course.findMany({
-      where: (course, { eq }) => eq(course.isFeatured, true),
+      where: (course, { eq, and }) =>
+        and(eq(course.isFeatured, true), eq(course.isHidden, false)),
       with: {
         category: true,
         purchases: true,
@@ -23,6 +24,7 @@ export const courseRouter = createTRPCRouter({
   }),
   getAllCourse: protectedProcedure.query(async ({ ctx }) => {
     const courses = await ctx.db.query.course.findMany({
+      where: (course, { eq }) => eq(course.isHidden, false),
       with: {
         category: true,
         purchases: true,
