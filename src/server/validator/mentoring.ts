@@ -37,13 +37,16 @@ export const RegisterMentoringSchema = z.object({
   materi: z.string().min(1, {
     message: "Required",
   }),
-  categoryId: z.string(),
+  categoryId: z.string().min(1, {
+    message: "Required",
+  }),
   price: z.string(),
 });
 
 export const UpdateMentoringSchema = createUpdateSchema(mentoring);
 export const UpdateMentoringAltSchema = createUpdateSchema(mentoring, {
   desc: z.string(),
+  materi: z.string(),
 });
 
 export const UpdateMentorSchema = createUpdateSchema(mentor);
@@ -67,4 +70,5 @@ export const RequestSessionSchema = z.object({
 export const ResponseSessionSchema = createUpdateSchema(mentoringSchedule, {
   userMentoringDataId: z.string(),
   message: z.string(),
+  id: z.string(),
 });

@@ -14,7 +14,7 @@ import { NavMenu } from "./nav-menu";
 
 const Navbar = ({ session }: { session: Session | null }) => {
   return (
-    <nav className="bg-background fixed inset-x-4 top-6 mx-auto h-14 max-w-screen-xl rounded-lg shadow-lg">
+    <nav className="bg-background fixed inset-x-4 top-6 z-50 mx-auto h-14 max-w-screen-xl rounded-lg shadow-lg dark:bg-gray-700">
       <div className="mx-auto flex h-full items-center justify-between px-4">
         <Link href="/">
           <LayoutGrid size={30} />
@@ -40,7 +40,7 @@ const Navbar = ({ session }: { session: Session | null }) => {
                 </Button>
               </SheetTrigger>
               <SheetTitle hidden>Menu</SheetTitle>
-              <SheetContent className=" p-4">
+              <SheetContent className="p-4">
                 <Link href="/">
                   <LayoutGrid size={30} />
                 </Link>
