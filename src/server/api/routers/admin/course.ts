@@ -31,7 +31,7 @@ export const courseAdminRouter = createTRPCRouter({
     .mutation(async ({ ctx, input }) => {
       const existed = await ctx.db.query.course
         .findFirst({
-          where: (course, { eq }) => eq(course.id, input.id ?? ""),
+          where: (course, { eq }) => eq(course.id, input.id),
         })
         .execute();
 

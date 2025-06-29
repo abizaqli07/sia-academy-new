@@ -3,8 +3,9 @@ export const dynamic = "force-dynamic";
 import { api, HydrateClient } from "~/trpc/server";
 import AllCourse from "./_components/all_course";
 
-const AllCourseListPage = () => {
+const AllCourseListPage = async () => {
   void api.adminRoute.course.getAll.prefetch();
+  void api.adminRoute.category.getAll.prefetch()
 
   return (
     <HydrateClient>

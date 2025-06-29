@@ -4,6 +4,7 @@ import { type ColumnDef } from "@tanstack/react-table";
 import { ArrowUpDown, MoreHorizontal, Pencil } from "lucide-react";
 import Link from "next/link";
 
+import { Badge } from "~/components/ui/badge";
 import { Button } from "~/components/ui/button";
 import {
   DropdownMenu,
@@ -11,10 +12,10 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "~/components/ui/dropdown-menu";
-import { Badge } from "~/components/ui/badge";
 import { cn, currencyFormatter } from "~/lib/utils";
-import { type RouterOutputs } from "~/trpc/react";
 import { type category as CategoryCourse } from "~/server/db/schema";
+import { type RouterOutputs } from "~/trpc/react";
+import DeleteButton from "./delete_button";
 
 export const columns: ColumnDef<
   RouterOutputs["adminRoute"]["course"]["getAll"][number]
@@ -93,7 +94,7 @@ export const columns: ColumnDef<
       const isWebinar = row.original.isWebinar;
 
       return (
-        <Badge className={cn("bg-secondary", isWebinar && "bg-primary")}>
+        <Badge className={isWebinar ? "bg-violet-700" : "bg-primary"}>
           {isWebinar ? "Webinar" : "Bootcamp"}
         </Badge>
       );
@@ -128,7 +129,11 @@ export const columns: ColumnDef<
       return (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="h-4 w-8 p-0">
+            <Button
+              variant="ghost"
+              className="data-[state=open]:bg-muted text-muted-foreground flex size-8"
+              size="icon"
+            >
               <span className="sr-only">Open menu</span>
               <MoreHorizontal className="h-4 w-4" />
             </Button>
@@ -140,6 +145,7 @@ export const columns: ColumnDef<
                 Edit
               </DropdownMenuItem>
             </Link>
+            <DeleteButton courseId={id} />
           </DropdownMenuContent>
         </DropdownMenu>
       );

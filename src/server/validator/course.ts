@@ -10,7 +10,9 @@ export const CreateCourseTitleSchema = z.object({
   title: z.string().min(1, {
     message: "Title required",
   }),
-  categoryId: z.string(),
+  categoryId: z.string().min(1, {
+    message: "Category required"
+  }),
   isWebinar: z.boolean(),
 });
 
@@ -53,14 +55,17 @@ export const CreateCourseSchema = z.object({
   }),
 });
 
-export const UpdateCourseSchema = createUpdateSchema(course);
+export const UpdateCourseSchema = createUpdateSchema(course, {
+  id: z.string()
+});
 export const UpdateCourseAltSchema = createUpdateSchema(course, {
-  titleDesc: (d) => d.nonoptional(),
-  desc: (d) => d.nonoptional(),
-  materi: (d) => d.nonoptional(),
-  place: (d) => d.nonoptional(),
-  placeUrl: (d) => d.nonoptional(),
-  price: (d) => d.nonoptional(),
+  id: z.string(),
+  titleDesc: z.string(),
+  desc: z.string(),
+  materi: z.string(),
+  place: z.string(),
+  placeUrl: z.string().url(),
+  price: z.string().min(4, {message: "Price not valid"}),
 });
 
 export const idCourse = z.object({
