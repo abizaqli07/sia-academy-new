@@ -2,7 +2,7 @@ export const dynamic = "force-dynamic";
 
 import BannerSliderSection from "~/components/block/banner_slider";
 import { api, HydrateClient } from "~/trpc/server";
-import AllCourseList from "./_components/all_course";
+import AllMentoring from "./_components/all_mentor";
 
 const bannerData = [
   {
@@ -13,8 +13,8 @@ const bannerData = [
   },
   {
     id: "2",
-    image: "/images/banner/banner_2.webp",
-    imageMobile: "/images/banner/banner_2.webp",
+    image: "/images/banner/banner_4.webp",
+    imageMobile: "/images/banner/banner_4.webp",
     redirectUrl: null,
   },
   {
@@ -31,8 +31,8 @@ const bannerData = [
   },
 ];
 
-const CourseList = async () => {
-  void api.userRoute.course.getAllCourse.prefetch();
+const MentorList = async () => {
+  void api.userRoute.mentoring.getAllMentoring.prefetch();
 
   return (
     <HydrateClient>
@@ -43,7 +43,7 @@ const CourseList = async () => {
             <BannerSliderSection bannerData={bannerData} />
 
             {/* All Course List */}
-            <AllCourseList />
+            <AllMentoring />
           </div>
         </div>
       </div>
@@ -51,4 +51,4 @@ const CourseList = async () => {
   );
 };
 
-export default CourseList;
+export default MentorList;

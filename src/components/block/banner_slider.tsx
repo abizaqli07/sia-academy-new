@@ -132,7 +132,7 @@ const BannerSliderSection = ({ bannerData }: BannerSliderPropsInterface) => {
               )
             }
           >
-            <ChevronRight />
+            <ChevronRight className=" text-primary" />
           </div>
 
           <div className="absolute bottom-[1rem] left-[50%] z-10 flex translate-x-[-50%] items-center gap-2">
@@ -154,7 +154,7 @@ const BannerSliderSection = ({ bannerData }: BannerSliderPropsInterface) => {
               )
             }
           >
-            <ChevronRight />
+            <ChevronRight className=" text-primary" />
           </div>
         </LayoutGroup>
       </div>

@@ -87,7 +87,9 @@ export const menteeRouter = createTRPCRouter({
                   phone: true,
                 },
               },
-              schedules: true,
+              schedules: {
+                orderBy: desc(mentoringSchedule.createdAt)
+              },
             },
           })
           .execute();

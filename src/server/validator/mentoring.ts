@@ -68,7 +68,6 @@ export const RequestSessionSchema = z.object({
 });
 
 export const ResponseSessionSchema = createUpdateSchema(mentoringSchedule, {
-  userMentoringDataId: z.string(),
   message: z.string(),
   id: z.string(),
 });

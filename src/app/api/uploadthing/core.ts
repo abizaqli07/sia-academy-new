@@ -6,7 +6,7 @@ const f = createUploadthing();
 
 export const ourFileRouter = {
   userMentoringCv: f({
-    pdf: { maxFileCount: 1, maxFileSize: "1MB" },
+    pdf: { maxFileCount: 1, maxFileSize: "2MB" },
   }).onUploadComplete(({}) => {}),
   courseRegisterProof: f({
     "image/jpeg": { maxFileCount: 1, maxFileSize: "2MB" },

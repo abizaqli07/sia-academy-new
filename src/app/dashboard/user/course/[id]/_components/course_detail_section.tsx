@@ -25,7 +25,7 @@ const CourseDetailSection = ({ id }: { id: string }) => {
 
   return (
     <>
-      <div className="flex min-h-screen gap-8">
+      <div className="flex min-h-screen gap-8 max-w-[1350px] mx-auto">
         {/* Main Section */}
         <section className="min-h-screen w-full pt-8 lg:flex-[2]">
           {/* Header */}
