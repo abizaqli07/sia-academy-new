@@ -76,7 +76,7 @@
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.59.0",
     "react-quill-new": "^3.4.6",
-    "recharts": "^3.0.2",
+    "recharts": "^2.15.3",
     "server-only": "^0.0.1",
     "sonner": "^2.0.5",
     "superjson": "^2.2.1",
@@ -106,6 +106,9 @@
   },
   "ct3aMetadata": {
     "initVersion": "7.39.3"
+  },
+  "overrides": {
+    "react-is": "^19.0.0-rc-69d4b800-20241021"
   },
   "packageManager": "pnpm@9.15.4"
 }

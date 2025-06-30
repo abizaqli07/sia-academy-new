@@ -87,7 +87,7 @@ export const UpdateDataSchema = z.object({
     .string()
     .min(10, { message: "Invalid phone number" })
     .regex(phoneRegex, "Invalid phone number!"),
-  notifConsent: z.boolean().default(false),
+  notifConsent: z.boolean(),
   image: z.string().url().nullable(),
 });
 

@@ -15,12 +15,11 @@ import {
   FormMessage,
 } from "~/components/ui/form";
 import { Input } from "~/components/ui/input";
-import { ScrollArea } from "~/components/ui/scroll-area";
 import { Separator } from "~/components/ui/separator";
 import { UploadDropzone } from "~/lib/uploadthing";
+import { UpdateDataSchema } from "~/server/validator/auth";
 import { api } from "~/trpc/react";
 import ChangePassword from "./change_password";
-import { UpdateDataSchema } from "~/server/validator/auth";
 
 const UpdateData = () => {
   const [data] = api.authRoute.getUserData.useSuspenseQuery();
