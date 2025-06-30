@@ -34,6 +34,7 @@ export const mentoringRouter = createTRPCRouter({
             categoryId: input.categoryId,
             price: input.price,
             mentorId: mentorData.id,
+            isFeatured: true,
           })
           .returning();
 
