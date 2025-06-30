@@ -387,7 +387,7 @@ export const userMentoringData = createTable(
       .default(sql`CURRENT_TIMESTAMP`)
       .notNull(),
   }),
-  (t) => [unique("userMentorUnq").on(t.userId, t.mentoringId)],
+  (t) => [unique("userMentorUnqNew").on(t.userId, t.mentoringId)],
 );
 
 export const userMentoringDataRelations = relations(
