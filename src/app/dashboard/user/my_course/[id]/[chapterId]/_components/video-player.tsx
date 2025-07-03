@@ -14,6 +14,11 @@ export const VideoPlayer = ({ playbackId, title }: VideoPlayerProps) => {
   const [isReady, setIsReady] = useState(false);
   const [isError, setIsError] = useState(false);
 
+  const handleError = () => {
+    setIsError(true);
+    setIsReady(true)
+  }
+
   return (
     <div className="relative aspect-video">
       {!isReady && (
@@ -28,7 +33,7 @@ export const VideoPlayer = ({ playbackId, title }: VideoPlayerProps) => {
       ) : (
         <MuxPlayer
           title={title}
-          onError={() => setIsError(true)}
+          onError={() => handleError()}
           className={cn(!isReady && "hidden")}
           onCanPlay={() => setIsReady(true)}
           autoPlay
